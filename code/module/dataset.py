@@ -4,6 +4,10 @@ import os
 import re
 
 
+def convert_to_one_hot(Y, C):
+    Y = np.eye(C)[Y.reshape(-1)]
+    return Y
+
 class QRSDataset():
     def __init__(self, batch_size, cv_path, data_path, label_path, fold=1):
         self.batch_size = batch_size
